@@ -1,0 +1,308 @@
+.mat-form-field-flex>.mat-form-field-infix {
+    margin-top: .2em;
+    padding: 0.4em 0px !important;
+    border-top-width: 0.4em;
+    border-top-style: solid;
+    border-bottom-width: 0.4em;
+    border-bottom-style: solid;
+    border-bottom-color: rgba(0, 0, 0, 0);
+}
+
+.mat-form-field .mat-form-field-wrapper {
+    cursor: text;
+}
+
+.mat-form-field-label-wrapper {
+    top: -.8em;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-label {
+    top: 1.4em
+}
+
+.mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    transform: translateY(-1em) scale(.75);
+    width: 133.33333%;
+}
+
+.primary {
+    background-color: #1867c0 !important;
+    border-color: #1867c0 !important;
+}
+
+.warning {
+    background-color: #fb8c00 !important;
+    border-color: #fb8c00 !important;
+}
+
+.success {
+    background-color: #4caf50 !important;
+    border-color: #4caf50 !important;
+}
+
+.danger {
+    background-color: #ff5252 !important;
+    border-color: #ff5252 !important;
+}
+
+.primary.mat-stroked-button,
+.primary.mat-button {
+    color: #1867c0 !important;
+    caret-color: #1867c0 !important;
+}
+
+.warning.mat-stroked-button,
+.warning.mat-button {
+    color: #fb8c00;
+    caret-color: #fb8c00 !important;
+}
+
+.success.mat-stroked-button,
+.success.mat-button {
+    color: #4caf50;
+    caret-color: #4caf50 !important;
+}
+
+.danger.mat-stroked-button,
+.danger.mat-button {
+    color: #ff5252;
+    caret-color: #ff5252 !important;
+}
+
+.mat-button-base {
+    min-width: unset !important;
+    color: rgba(0, 0, 0, .87);
+    background-color: transparent;
+}
+
+.primary:not(.mat-stroked-button):not(.mat-button),
+.success:not(.mat-stroked-button):not(.mat-button),
+.danger:not(.mat-stroked-button):not(.mat-button),
+.warning:not(.mat-stroked-button):not(.mat-button) {
+    color: #FFF;
+    caret-color: #FFF !important;
+}
+
+
+.mat-stroked-button,
+.mat-button {
+    background-color: transparent !important;
+}
+
+.mat-button-base:not(.mat-button-disabled) {
+    opacity: .9;
+}
+
+.mat-button-base.mat-stroked-button:not(.mat-button-disabled):not(.mat-mini-fab):hover:before,
+.mat-button-base.mat-button:not(.mat-button-disabled):not(.mat-mini-fab):hover:before,
+.mat-button-base:not(.mat-button-disabled):not(.success):not(.primary):not(.mat-mini-fab):hover:before {
+    opacity: .1;
+}
+
+.mat-button-base::before {
+    content: "";
+    background-color: currentColor;
+    border-radius: inherit;
+    display: block;
+    bottom: 0;
+    color: inherit;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: -1px !important;
+    transition: opacity .2s cubic-bezier(.4, 0, .6, 1);
+}
+
+.mat-button .mat-ripple-element,
+.mat-icon-button .mat-ripple-element,
+.mat-stroked-button .mat-ripple-element,
+.mat-button .mat-ripple-element {
+    opacity: .2;
+}
+
+.mat-ripple-element {
+    background-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+.primary:not(.mat-stroked-button):not(.mat-button) .mat-ripple-element,
+.success:not(.mat-stroked-button):not(.mat-button) .mat-ripple-element,
+.danger:not(.mat-stroked-button):not(.mat-button) .mat-ripple-element,
+.warning:not(.mat-stroked-button):not(.mat-button) .mat-ripple-element {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.mat-button:hover:not(.mat-button-disabled) .mat-button-focus-overlay,
+.mat-stroked-button:hover:not(.mat-button-disabled) .mat-button-focus-overlay,
+.mat-button:hover:not(.mat-button-disabled) .mat-button-focus-overlay {
+    opacity: 0 !important;
+}
+
+.mat-button-base>.mat-button-wrapper {
+    color: inherit;
+}
+
+.mat-raised-button:not(.mat-button-disabled):active:not([class*=mat-elevation-z]) {
+    box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+}
+
+.mat-flat-button.mat-accent,
+.mat-raised-button.mat-accent,
+.mat-fab.mat-accent,
+.mat-mini-fab.mat-accent,
+.mat-button.mat-accent,
+.mat-icon-button.mat-accent,
+.mat-stroked-button.mat-accent {
+    color: currentColor;
+    background-color: transparent;
+}
+
+.mat-button-base:not(.primary):not(.warning):not(.danger) {
+    background-color: unset !important;
+}
+
+.mat-flat-button.mat-button-disabled:has(.primary):has(.warning):has(.danger),
+.mat-raised-button.mat-primary.mat-button-disabled:has(.primary):has(.warning):has(.danger),
+.mat-fab.mat-primary.mat-button-disabled:has(.primary):has(.warning):has(.danger),
+.mat-mini-fab.mat-primary.mat-button-disabled:has(.primary):has(.warning):has(.danger) {
+    background-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+
+.mat-form-field-wrapper {
+    padding-bottom: 1em;
+}
+
+.mat-form-field.hide-details .mat-form-field-wrapper {
+    padding-bottom: unset;
+}
+
+.mat-form-field.hide-details.mat-form-field-appearance-legacy .mat-form-field-underline {
+    bottom: 0 !important;
+}
+
+.mat-form-field .mat-select-arrow-wrapper {
+    transition: .3s cubic-bezier(.25, .8, .5, 1), visibility 0s;
+}
+
+.mat-form-field.mat-focused .mat-select-arrow-wrapper {
+    transform: rotate(180deg);
+}
+
+.mat-form-field .mat-form-field-required-marker {
+    display: none;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-subscript-wrapper {
+    padding: unset !important;
+}
+
+.mat-form-field.mat-form-field-invalid .mat-form-field-label {
+    -webkit-animation: mat-shake .6s cubic-bezier(.25, .8, .5, 1);
+    animation: mat-shake .6s cubic-bezier(.25, .8, .5, 1);
+}
+
+@-webkit-keyframes mat-shake {
+    59% {
+        margin-left: 0
+    }
+
+    60%,
+    80% {
+        margin-left: 2px
+    }
+
+    70%,
+    90% {
+        margin-left: -2px
+    }
+}
+
+@keyframes mat-shake {
+    59% {
+        margin-left: 0
+    }
+
+    60%,
+    80% {
+        margin-left: 2px
+    }
+
+    70%,
+    90% {
+        margin-left: -2px
+    }
+}
+
+.mat-expansion-panel.isInvalid.isTouch:not(.mat-expanded) {
+    background-color: rgb(255, 82, 82, .12) !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-flex {
+    margin-top: unset;
+}
+
+.mat-button-base:not(.mat-button-disabled):hover .mat-button-focus-overlay {
+    background-color: #000 !important;
+    opacity: .1 !important;
+}
+
+@keyframes spinner {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner:before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px !important;
+    margin-left: -10px !important;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    border-top-color: #000000;
+    animation: spinner .8s linear infinite;
+    opacity: 1;
+    background: transparent;
+}
+
+.spinner .mat-button-wrapper {
+    opacity: 0;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-prefix,
+.mat-form-field-appearance-outline .mat-form-field-suffix {
+    top: 0.4em !important;
+}
+
+.mat-button-base {
+    text-transform: uppercase;
+    letter-spacing: 0.0892857143em;
+    font-weight: 500;
+}
+
+.mat-form-field.mat-focused.mat-primary .mat-icon,
+.mat-form-field.mat-focused.mat-form-field-appearance-outline .mat-form-field-outline-thick {
+    color: #1867c0 !important;
+    caret-color: #1867c0 !important;
+}
+
+.mat-form-field-infix {
+    width: unset !important;
+}
+
+.mat-mini-fab .mat-button-wrapper {
+    padding: 4px 0 !important;
+
+}

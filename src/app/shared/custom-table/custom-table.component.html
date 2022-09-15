@@ -1,0 +1,109 @@
+<div class="custom-table-container" [ngClass]="{ dense: dense }">
+  <div class="custom-table-header-container">
+    <div class="custom-table-header-wrapper">
+      <span class="custom-table-header-title">{{ title }}</span>
+      <hr />
+      <div class="spacer"></div>
+      <mat-form-field
+        class="full-width hide-details"
+        [ngStyle]="{
+          marginRight: refHeaderOption.hasChildNodes() ? '16px' : false
+        }"
+        appearance="outline"
+      >
+        <mat-icon matPrefix style="color: rgba(0, 0, 0, 0.54)">search</mat-icon>
+        <mat-label>Search</mat-label>
+        <input
+          [(ngModel)]="searchValue"
+          autocomplete="new-username"
+          matInput
+          type="text"
+          (input)="onSearchInput()"
+        />
+      </mat-form-field>
+      <div #refHeaderOption class="custom-table-header-option">
+        <ng-content select="[headerOption]"></ng-content>
+      </div>
+    </div>
+  </div>
+  <div class="custom-table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th *ngFor="let header of headers">
+            {{ header.text }}
+          </th>
+          <th *ngIf="action != undefined">Option</th>
+        </tr>
+      </thead>
+      <tbody style="padding: 1px 0">
+        <ng-container *ngIf="listsPaginate.length > 0">
+          <tr *ngFor="let item of listsPaginate">
+            <td *ngFor="let header of headers">
+              {{ item[header.value] }}
+            </td>
+            <td *ngIf="action != undefined && !loading">
+              <ng-container
+                select="[rowOption]"
+                *ngTemplateOutlet="action; context: { data: item }"
+              ></ng-container>
+            </td>
+          </tr>
+        </ng-container>
+        <tr *ngIf="listsPaginate.length <= 0">
+          <td [colSpan]="headers.length + 1" style="text-align: center">
+            No
+            {{
+              filteredStatus == "" ? "records found" : "matching records found"
+            }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="custom-table-footer-container">
+    <div class="custom-table-footer-select">
+      Rows per page:
+      <mat-form-field
+        class="hide-details"
+        style="
+          margin: 13px 0 13px 34px;
+          flex: 0 1 0;
+          padding: 0;
+          position: static;
+          width: 46px;
+        "
+      >
+        <mat-select [(ngModel)]="limitRows" (valueChange)="pageIndex = 1">
+          <mat-option *ngFor="let rowItem of rowItems" [value]="rowItem">{{
+            rowItem
+          }}</mat-option>
+          <mat-option value="-1"> All </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="pagination">
+      {{ rowsInfo }}
+    </div>
+    <div class="icons-before">
+      <button
+        class="mat-elevation-z0 menu"
+        mat-mini-fab
+        [disabled]="pageIndex == 1"
+        (click)="onTogglePage(-1)"
+      >
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+    </div>
+    <div class="icons-after">
+      <button
+        class="mat-elevation-z0 menu"
+        mat-mini-fab
+        [disabled]="statusNextPage"
+        (click)="onTogglePage(1)"
+      >
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

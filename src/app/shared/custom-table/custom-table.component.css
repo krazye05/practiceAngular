@@ -1,0 +1,230 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.custom-table-container {
+  border-radius: 4px;
+  line-height: 1.5;
+  max-width: 100%;
+  border-radius: 4px;
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12) !important;
+  background-color: #FFF;
+}
+
+.custom-table-container .custom-table-wrapper {
+  overflow: auto hidden;
+  max-height: calc(100vh - 134px);
+  scroll-behavior: smooth;
+  transition: overflow .3s, max-height .3s;
+}
+
+.custom-table-container:hover .custom-table-wrapper {
+  overflow: auto overlay;
+}
+
+.custom-table-container .custom-table-wrapper::-webkit-scrollbar {
+  width: 10px;
+
+  height: 10px;
+}
+
+.custom-table-container .custom-table-wrapper::-webkit-scrollbar-track {
+  margin-top: 32px;
+}
+
+.custom-table-container .custom-table-wrapper::-webkit-scrollbar-thumb {
+
+  background: #888;
+  border-radius: 50px;
+}
+
+.custom-table-container .custom-table-wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+
+
+
+
+
+
+
+
+.custom-table-container .custom-table-wrapper table thead {
+  position: sticky;
+  top: 0px;
+  background: #FFF;
+  z-index: 1;
+}
+
+.custom-table-container .custom-table-wrapper table thead th {
+  color: rgba(0, 0, 0, .6);
+}
+
+.custom-table-container .custom-table-wrapper table th,
+.custom-table-container .custom-table-wrapper table td {
+  text-align: start;
+  padding: 0 8px;
+  transition: height .2s cubic-bezier(.4, 0, .6, 1);
+  color: rgba(0, 0, 0, .87);
+  border-bottom: thin solid rgba(0, 0, 0, .12);
+  height: 48px;
+}
+
+.custom-table-container .custom-table-wrapper table th:first-child,
+.custom-table-container .custom-table-wrapper table td:first-child {
+  padding-left: 16px;
+}
+
+.custom-table-container .custom-table-wrapper table th:last-child,
+.custom-table-container .custom-table-wrapper table td:last-child {
+  padding-right: 16px;
+}
+
+.custom-table-container .custom-table-wrapper table>tbody>tr:last-child>td {
+  border-bottom: unset;
+}
+
+
+.custom-table-container.dense .custom-table-wrapper table th,
+.custom-table-container.dense .custom-table-wrapper table td {
+  height: 32px;
+}
+
+.custom-table-container .custom-table-wrapper table>tbody>tr>th,
+.custom-table-container .custom-table-wrapper table>tfoot>tr>th,
+.custom-table-container .custom-table-wrapper table>thead>tr>th {
+  font-size: .75rem;
+}
+
+.custom-table-container .custom-table-wrapper table>tbody>tr>td,
+.custom-table-container .custom-table-wrapper table>tfoot>tr>td,
+.custom-table-container .custom-table-wrapper table>thead>tr>td {
+  font-size: .875rem;
+}
+
+.custom-table-container .custom-table-footer-container {
+  /* position: sticky;
+  bottom: 0;
+  background: #FFF;
+  z-index: 1; */
+
+  border-top: thin solid rgba(0, 0, 0, .12);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: .75rem;
+  padding: 0 8px;
+}
+
+.custom-table-container .custom-table-footer-container .custom-table-footer-select {
+
+  margin-left: auto;
+
+  display: flex;
+  align-items: center;
+  flex: 0 0 0;
+  justify-content: flex-end;
+  white-space: nowrap;
+
+}
+
+
+table tr {
+  /* border-collapse: collapse; */
+  /* width: 100%; */
+  /* display: table; */
+  /* table-layout: fixed; */
+}
+
+.custom-table-wrapper .mat-mini-fab {
+  width: 36px;
+  height: 36px;
+}
+
+.custom-table-wrapper .mat-mini-fab .mat-button-wrapper {
+  padding: 2px 0;
+  line-height: unset;
+}
+
+.custom-table-container .custom-table-header-container {
+  /* position: sticky;
+  top: 0;
+  background: #FFF;
+  z-index: 2; */
+  contain: layout;
+  display: block;
+  flex: 1 1 auto;
+  max-width: 100%;
+
+  height: 56px;
+  padding-bottom: 16px;
+}
+
+.custom-table-container .custom-table-header-container .custom-table-header-wrapper {
+  align-items: center;
+  display: flex;
+  position: relative;
+  z-index: 0;
+  padding: 4px 16px;
+  height: 56px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.custom-table-container .custom-table-header-container .custom-table-header-wrapper .custom-table-header-title {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 0 0 auto;
+  max-width: 20%;
+}
+
+.custom-table-container .custom-table-header-container .custom-table-header-wrapper .spacer {
+  flex-grow: 1 !important
+}
+
+.custom-table-container .custom-table-header-container .custom-table-header-wrapper .custom-table-header-option {
+  flex: 0 0 auto
+}
+
+.custom-table-container .custom-table-footer-container .pagination {
+  margin: 0 32px 0 24px;
+  display: block;
+  text-align: center
+}
+
+.custom-table-container .icons-before button {
+  margin-right: 7px;
+
+}
+
+.custom-table-container .icons-after button {
+  margin-left: 7px;
+
+}
+
+::ng-deep .custom-table-container .custom-table-footer-select .mat-form-field-infix {
+  width: 45.66px !important;
+}
+
+.custom-table-container .custom-table-header-container .custom-table-header-wrapper hr {
+  align-self: stretch;
+  border: solid;
+  border-width: 0 thin 0 0;
+  display: inline-flex;
+  height: inherit;
+  max-width: 0;
+  width: 0;
+  vertical-align: text-bottom;
+  margin: 0 -1px;
+  margin-top: 8px;
+  min-height: 0;
+  max-height: calc(100% - 16px);
+  margin-right: 16px !important;
+  margin-left: 16px !important;
+}
