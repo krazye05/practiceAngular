@@ -1,12 +1,15 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild } from '@angular/core';
 
-export interface headers {
+export interface header {
   text: string;
   value: string;
   sort?: boolean;
-  columnNumber?: number
+  sortIndex?: number
+  sortValue?: "ASC" | "DESC" | null;
+  columnNumber?: number | null
   sticky?: boolean
 }
+
 export interface serverSideItems {
   items: [];
   total: number;
@@ -16,10 +19,12 @@ export interface dataTable {
   title: string;
   serverSide: boolean;
   search: boolean;
-  headers: headers[];
+  headers: header[];
   items: any[];
   dense: boolean;
   serverSideItems: serverSideItems;
+  sort?: boolean;
+  multiSort?: boolean;
 }
 
 @Component({
@@ -29,12 +34,12 @@ export interface dataTable {
 })
 
 export class CustomTableComponent implements dataTable, OnInit, AfterViewInit {
-  // @ViewChild('table') table: ElementRef;
-
   @Input() title = "";
   @Input() serverSide = false;
   @Input() search = true;
-  @Input() headers: headers[] = []
+  @Input() sort = false
+  @Input() headers: header[] = []
+  @Input() multiSort = false
   @Input() items: any[] = [];
   @Input() serverSideItems: serverSideItems = { items: [], total: 0 };
   @Input() dense = false
@@ -44,16 +49,16 @@ export class CustomTableComponent implements dataTable, OnInit, AfterViewInit {
   @Input() searchValue = "";
   @Output() private searchValueChange = new EventEmitter<string>()
 
+  multiSortList = []
   pageIndex = 1;
   limitRows = "-1";
+  loading = false;
 
-
-  loading = false
   ngOnInit() {
     this.items = this.serverSide ? this.serverSideItems.items : this.items;
   }
+
   ngAfterViewInit() {
-    // console.log(this.table)
     // console.log(document.getElementById("test"))
   }
 
@@ -77,6 +82,22 @@ export class CustomTableComponent implements dataTable, OnInit, AfterViewInit {
     this.pageIndex += pageNumber
   }
 
+  onSort(header: header) {
+    const headerSelect = this.headers.find(e => e == header)
+    headerSelect.sortValue = [null, undefined].includes(header.sortValue)
+      ? 'ASC'
+      : header.sortValue === 'ASC'
+        ? 'DESC'
+        : null;
+    if (this.multiSort) {
+      if (headerSelect.sortValue === 'ASC')
+        this.multiSortList.push(header), headerSelect.sortIndex = this.sortIndex(header) - 1
+      if (headerSelect.sortValue === null)
+        this.multiSortList.splice(this.multiSortList.findIndex(e => e == header), 1), headerSelect.sortIndex = null
+    }
+  }
+
+
   get statusNextPage() {
     if (this.limitRows === "-1")
       return true
@@ -84,14 +105,14 @@ export class CustomTableComponent implements dataTable, OnInit, AfterViewInit {
   }
 
   onSearchInput() {
-    // this.loading = true
     this.searchValueChange.emit(this.searchValue)
     this.pageIndex = 1;
+  }
 
+  sortIndex(header: header) {
+    return this.multiSortList.findIndex(e => e == header) + 1
   }
-  onResize() {
-    console.log("asd")
-  }
+
   constructor() {
 
   }

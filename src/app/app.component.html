@@ -1,11 +1,12 @@
 <app-custom-table
   [action]="rowOption"
   style="height: 400px"
-  [headers]="data.headers"
+  [headers]="headers"
   [items]="data.items"
   title="asd"
   [dense]="true"
   [(searchValue)]="searchValue"
+ 
 >
   <button headerOption type="button" mat-raised-button class="primary">
     <i class="fa-solid fa-plus"></i>
@@ -13,27 +14,27 @@
   </button>
   <ng-template #rowOption let-data="data">
     <div style="display: flex; justify-content: space-between">
-    <button
-      type="button"
-      mat-raised-button
-      class="warning full-width"
-      style="line-height: 29px; margin: 0 8px;"
-      (click)="onEdit(data)"
-    >
-      <i class="fa-solid fa-pen-to-square"></i>
-      Edit
-    </button>
+      <button
+        type="button"
+        mat-raised-button
+        class="warning full-width"
+        style="line-height: 29px; margin: 0 8px"
+        (click)="onEdit(data)"
+      >
+        <i class="fa-solid fa-pen-to-square"></i>
+        Edit
+      </button>
 
-    <button
-      type="button"
-      mat-raised-button
-      class="danger full-width"
-      style="line-height: 29px; margin: 0 8px;"
-      (click)="onDelete(data)"
-    >
-      <i class="fa-solid fa-trash"></i>
-      Delete
-    </button>
+      <button
+        type="button"
+        mat-raised-button
+        class="danger full-width"
+        style="line-height: 29px; margin: 0 8px"
+        (click)="onDelete(data)"
+      >
+        <i class="fa-solid fa-trash"></i>
+        Delete
+      </button>
     </div>
   </ng-template>
 </app-custom-table>
